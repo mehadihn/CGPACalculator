@@ -1,6 +1,8 @@
 package com.mehadihassan.cgpacalculator;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button cgpaCalc;
     private Button directCgpaCalc;
+    private AlertDialog.Builder aleartDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +38,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
 
+    @Override
+    public void onBackPressed() {
+        aleartDialog = new AlertDialog.Builder(MainActivity.this);
+        aleartDialog.setTitle("Do you want to exit?");
+        aleartDialog.setCancelable(false);
+        aleartDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
 
+        aleartDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
 
-
+        aleartDialog.show();
     }
 }

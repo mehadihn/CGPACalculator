@@ -52,7 +52,7 @@ public class CGPACalc extends AppCompatActivity {
                  if(Double.parseDouble(credit.getText().toString())<=4
                          && Double.parseDouble(credit.getText().toString())>=1) {
                      if (Double.parseDouble(grade.getText().toString()) <= 4
-                             && Double.parseDouble(grade.getText().toString()) >= 1) {
+                             && Double.parseDouble(grade.getText().toString()) >= 0) {
 
                          sumGrade = sumGrade + (Double.parseDouble(grade.getText().toString()) * Double.parseDouble(credit.getText().toString()));
                          sumCredit = sumCredit + Double.parseDouble(credit.getText().toString());
